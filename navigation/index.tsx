@@ -5,13 +5,17 @@
  */
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Amplify from 'aws-amplify';
 import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../types';
+import awsExports from './aws-exports';
 import BottomTabNavigator from './BottomTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
+
+Amplify.configure(awsExports);
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
